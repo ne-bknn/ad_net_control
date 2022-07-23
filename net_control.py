@@ -38,6 +38,8 @@ OPEN_NETWORK_RULES = [
     'FORWARD -i team+ -o eth0 -j ACCEPT',  # teams can access all other vpn servers & jury
     'FORWARD -i vuln+ -o eth0 -j ACCEPT',  # vulnboxes can access all other vpn servers & jury
     'FORWARD -i eth0 -o vuln+ -j ACCEPT',  # other vpn servers & jury can access vulnboxes
+    'FORWARD -i team+ -o jury -j ACCEPT', # teams **really** can access jury at 10.10.10.10
+    'FORWARD -i vuln+ -o jury -j ACCEPT', # vulnboxes **really** can access jury at 10.10.10.10
 ]  # teams cannot access each other (not even through vulnboxes)
 
 DROP_RULES = [
